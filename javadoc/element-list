@@ -1,0 +1,6 @@
+module:projects.rupizzeria.rupizzeria
+projects.rupizzeria.rupizzeria
+projects.rupizzeria.rupizzeria.controllers
+projects.rupizzeria.rupizzeria.pizza
+projects.rupizzeria.rupizzeria.pizza.impl
+projects.rupizzeria.rupizzeria.util
