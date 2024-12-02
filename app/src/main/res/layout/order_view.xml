@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:actionBarNavMode="standard">
+
+    <ScrollView
+        android:layout_width="432dp"
+        android:layout_height="873dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txt_pizzaHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="ORDER A PIZZA:" />
+
+            <RadioGroup
+                android:id="@+id/rg_pizzaSelect"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/bt_small">
+
+                <EditText
+                    android:id="@+id/txt_pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Type of Pizza:" />
+
+                <RadioButton
+                    android:id="@+id/bt_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Deluxe Pizza" />
+
+                <RadioButton
+                    android:id="@+id/bt_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BBQ Chicken Pizza" />
+
+                <RadioButton
+                    android:id="@+id/bt_meatzza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meatzza Pizza" />
+
+                <RadioButton
+                    android:id="@+id/bt_buildYourOwn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Build Your Own Pizza" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_pizzaSelect"
+                android:layout_width="435dp"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/bt_small">
+
+                <EditText
+                    android:id="@+id/txt_pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Type of Crust:" />
+
+                <RadioButton
+                    android:id="@+id/bt_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Chicago Style" />
+
+                <RadioButton
+                    android:id="@+id/bt_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New York Style" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_pizzaSelect"
+                android:layout_width="432dp"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/bt_small">
+
+                <EditText
+                    android:id="@+id/txt_pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Size of Pizza:" />
+
+                <RadioButton
+                    android:id="@+id/bt_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Small" />
+
+                <RadioButton
+                    android:id="@+id/bt_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medium" />
+
+                <RadioButton
+                    android:id="@+id/bt_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Large" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/txt_pizzaToppings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Pizza Toppings:" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="431dp"
+                android:layout_height="298dp">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_mushroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Mushroom" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_pineapple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Pineapple" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_blackOlives"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Black Olives" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_cheddar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Cheddar" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_provolone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Provolone" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_spinach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Spinach" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_ham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Ham" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_beef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Beef" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_sausage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Sausage" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_pepperoni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Pepperoni" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_greenPepper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Green Pepper" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_onion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Onion" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_oxtail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="Oxtail" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/ch_bbqChicken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:closeIconVisible="true"
+                    tools:text="BBQ Chicken" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <Button
+                android:id="@+id/bt_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Pizza to Current Order" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
