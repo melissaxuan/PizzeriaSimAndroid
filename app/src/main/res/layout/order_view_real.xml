@@ -119,6 +119,13 @@
                 android:layout_height="wrap_content"
                 android:text="Add Pizza to Current Order" />
 
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:onClick="onBackClick"/>
+
         </LinearLayout>
     </ScrollView>
 
