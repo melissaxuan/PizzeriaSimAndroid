@@ -1,12 +1,11 @@
-package projects.rupizzeria.rupizzeria.pizza.impl;
+package com.android.rupizzeria;
 
 
 import org.junit.Test;
-import projects.rupizzeria.rupizzeria.pizza.ChicagoPizza;
-import projects.rupizzeria.rupizzeria.pizza.Pizza;
-import projects.rupizzeria.rupizzeria.pizza.PizzaFactory;
+
 import projects.rupizzeria.rupizzeria.util.Size;
 import projects.rupizzeria.rupizzeria.util.Topping;
+import projects.rupizzeria.rupizzeria.pizza.impl.BuildYourOwn;
 import static org.junit.Assert.assertEquals;
 
 /**

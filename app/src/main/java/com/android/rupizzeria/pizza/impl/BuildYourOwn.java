@@ -47,10 +47,10 @@ public class BuildYourOwn extends Pizza {
     public double price() {
         double toppingsPrice = super.getToppings().size() * TOPPING_PRICE;
         switch(super.getSize()) {
-            case SMALL -> {return Math.round((SMALL_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
-            case MEDIUM -> {return Math.round((MED_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
-            case LARGE -> {return Math.round((LARGE_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
-            default -> {return FREE;}
+            case SMALL : {return Math.round((SMALL_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
+            case MEDIUM : {return Math.round((MED_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
+            case LARGE : {return Math.round((LARGE_PRICE + toppingsPrice) * HUNDRED) / HUNDRED;}
+            default : {return FREE;}
         }
     }
 }
