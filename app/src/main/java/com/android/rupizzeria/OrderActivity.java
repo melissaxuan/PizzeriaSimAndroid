@@ -1,6 +1,7 @@
 package com.android.rupizzeria;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,6 +29,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private ArrayList<Topping> toppingList = new ArrayList<>();
     private RecyclerView recyclerView;
     private Spinner spinner;
+    private Button back;
 
     private RadioButton chicagoCrust, nyCrust, smallSize, medSize, largeSize;
 
@@ -71,4 +74,15 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    public void onBackClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+//    private void setAdapter() {
+//        OrderRecyclerAdapter adapter = new OrderRecyclerAdapter(this, toppingList);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(adapter);
+//    }
 }
