@@ -1,4 +1,4 @@
-package projects.rupizzeria.rupizzeria.util;
+package com.android.rupizzeria.util;
 
 import projects.rupizzeria.rupizzeria.pizza.Pizza;
 

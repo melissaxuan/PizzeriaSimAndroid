@@ -41,34 +41,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08d43213-cc79-4a42-900a-2fb436b24598" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/OrderActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_recycler_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/SingletonData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/RUPizzeriaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/RUPizzeriaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/BillViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/BillViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/CurrentOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/CurrentOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/OrderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/OrderActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/ChicagoPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/ChicagoPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/NYPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/NYPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/PizzaFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/PizzaFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/BBQChicken.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/BBQChicken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/BuildYourOwn.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/BuildYourOwn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/Deluxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/Deluxe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/Meatzza.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/Meatzza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/pizza/impl/PriceTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/android/rupizzeria/PriceTestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/order_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_view_real.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/android/rupizzeria/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Crust.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Crust.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/util/Topping.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

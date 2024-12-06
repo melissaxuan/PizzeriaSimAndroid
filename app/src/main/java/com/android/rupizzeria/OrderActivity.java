@@ -2,8 +2,12 @@ package com.android.rupizzeria;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -11,53 +15,60 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.rupizzeria.controllers.OrderRecyclerAdapter;
+import com.android.rupizzeria.pizza.ChicagoPizza;
+import com.android.rupizzeria.pizza.Pizza;
+import com.android.rupizzeria.pizza.PizzaFactory;
+import com.android.rupizzeria.util.Topping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import projects.rupizzeria.rupizzeria.util.Topping;
-
-public class OrderActivity extends AppCompatActivity {
+public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ArrayList<Topping> toppingList = new ArrayList<>();
     private RecyclerView recyclerView;
     private Spinner spinner;
 
+    private RadioButton chicagoCrust, nyCrust, smallSize, medSize, largeSize;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_main);
+
         setContentView(R.layout.order_view_real);
         spinner = findViewById(R.id.sp_pizzatype);
 
-        // Create an ArrayAdapter using the string array from resources
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.pizzatype, android.R.layout.simple_spinner_item);
-
-        // Set the dropdown layout
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
 
         recyclerView = findViewById(R.id.rv_orderRecyclerView);
         toppingList.addAll(Arrays.asList(Topping.values()));
         OrderRecyclerAdapter orderRecyclerAdapter = new OrderRecyclerAdapter(this, toppingList);
         recyclerView.setAdapter(orderRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        System.out.println("onCreate2");
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
     }
 
-//    private void setAdapter() {
-//        OrderRecyclerAdapter adapter = new OrderRecyclerAdapter(this, toppingList);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(adapter);
-//    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String p = spinner.getSelectedItem().toString();
+        PizzaFactory pizzaFactory = new ChicagoPizza();
+        Pizza pizza;
+
+        switch (p) {
+//            case (getResources().getStringArray(R.array.pizzatype)[0]) : {pizza = pizzaFactory.
+        }
+
+
+//        chicagoCrust.setText()
+
+        Toast.makeText(this, p, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

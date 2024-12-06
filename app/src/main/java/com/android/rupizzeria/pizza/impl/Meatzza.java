@@ -1,5 +1,5 @@
 
-package projects.rupizzeria.rupizzeria.pizza.impl;
+package com.android.rupizzeria.pizza.impl;
 
 import projects.rupizzeria.rupizzeria.pizza.Pizza;
 import projects.rupizzeria.rupizzeria.util.Crust;

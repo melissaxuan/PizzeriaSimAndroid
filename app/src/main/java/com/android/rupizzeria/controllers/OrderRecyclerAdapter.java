@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.rupizzeria.R;
+import com.android.rupizzeria.util.Topping;
 import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
-import projects.rupizzeria.rupizzeria.util.Topping;
 
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.MyViewHolder> {
     private Context context;

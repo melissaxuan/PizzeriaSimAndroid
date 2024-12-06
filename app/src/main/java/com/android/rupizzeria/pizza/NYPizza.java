@@ -1,4 +1,4 @@
-package projects.rupizzeria.rupizzeria.pizza;
+package com.android.rupizzeria.pizza;
 
 import projects.rupizzeria.rupizzeria.pizza.impl.BBQChicken;
 import projects.rupizzeria.rupizzeria.pizza.impl.BuildYourOwn;
