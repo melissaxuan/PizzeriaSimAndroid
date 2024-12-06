@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">rupizzeria</string>
-    <string name="rupizzeria">RUPizzeria</string>
+    <string-array name="pizzatype">
+        <item>Deluxe Pizza</item>
+        <item>BBQ Chicken Pizza</item>
+        <item>Meatzza Pizza</item>
+        <item>Build Your Own Pizza</item>
+    </string-array>
+
 </resources>

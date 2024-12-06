@@ -53,6 +53,7 @@ public class MainController extends AppCompatActivity {
         orderButton = findViewById(R.id.OrderButton);
         currentOrderButton = findViewById(R.id.CurrentOrderButton);
         billbutton = findViewById(R.id.BillButton);
+
     }
 
 

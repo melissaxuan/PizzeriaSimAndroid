@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:actionBarNavMode="standard">
+
+    <ScrollView
+        android:layout_width="432dp"
+        android:layout_height="873dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txt_pizzaHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="ORDER A PIZZA:" />
+
+            <EditText
+                android:id="@+id/txt_pizzaSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Type of Pizza:" />
+
+            <Spinner
+                android:id="@+id/sp_pizzatype"
+                android:layout_width="match_parent"
+                android:layout_height="58dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_pizzaSelect"
+                android:layout_width="435dp"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/bt_small">
+
+                <EditText
+                    android:id="@+id/txt_pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Type of Crust:" />
+
+                <RadioButton
+                    android:id="@+id/bt_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Chicago Style" />
+
+                <RadioButton
+                    android:id="@+id/bt_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New York Style" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_pizzaSelect"
+                android:layout_width="432dp"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/bt_small">
+
+                <EditText
+                    android:id="@+id/txt_pizzaSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="Size of Pizza:" />
+
+                <RadioButton
+                    android:id="@+id/bt_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Small" />
+
+                <RadioButton
+                    android:id="@+id/bt_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medium" />
+
+                <RadioButton
+                    android:id="@+id/bt_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Large" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/txt_pizzaToppings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Pizza Toppings:" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_orderRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="74dp" />
+
+            <Button
+                android:id="@+id/bt_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Pizza to Current Order" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
