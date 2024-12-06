@@ -7,6 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Title Text -->
+    <!-- Added top margin for spacing -->
+
+    <!-- Order Button -->
+
+    <!-- Current Order Button -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotationX="0"
+        android:text="rupizzeria"
+        android:textColor="#FF0000"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/OrderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Bill Button -->
+
+    <ImageButton
+        android:id="@+id/OrderButton"
+        android:layout_width="250dp"
+        android:layout_height="160dp"
+        android:onClick="onOrderClicked"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/CurrentOrderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882"
+        app:srcCompat="@drawable/spongeorderpic" />
+
+    <ImageButton
+        android:id="@+id/CurrentOrderButton"
+        android:layout_width="250dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="216dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cartsponge2" />
+
     <ImageButton
         android:id="@+id/BillButton"
         android:layout_width="250dp"
@@ -18,41 +69,4 @@
         app:layout_constraintTop_toBottomOf="@+id/CurrentOrderButton"
         app:srcCompat="@drawable/bill2" />
 
-    <ImageButton
-        android:id="@+id/CurrentOrderButton"
-        android:layout_width="250dp"
-        android:layout_height="160dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cartsponge2"
-        tools:layout_editor_absoluteY="341dp" />
-
-    <ImageButton
-        android:id="@+id/OrderButton"
-        android:layout_width="250dp"
-        android:layout_height="160dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/CurrentOrderButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818"
-        app:srcCompat="@drawable/spongeorderpic" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:rotationX="0"
-        android:text="@string/rupizzeria"
-        android:textColor="#FF0000"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/OrderButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

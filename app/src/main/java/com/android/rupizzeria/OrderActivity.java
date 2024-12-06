@@ -1,10 +1,12 @@
 package com.android.rupizzeria;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +23,7 @@ public class OrderActivity extends AppCompatActivity {
     private ArrayList<Topping> toppingList = new ArrayList<>();
     private RecyclerView recyclerView;
     private Spinner spinner;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,10 @@ public class OrderActivity extends AppCompatActivity {
 //            return insets;
 //        });
     }
-
+    public void onBackClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 //    private void setAdapter() {
 //        OrderRecyclerAdapter adapter = new OrderRecyclerAdapter(this, toppingList);
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
