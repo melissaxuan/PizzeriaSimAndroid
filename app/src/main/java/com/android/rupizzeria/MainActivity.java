@@ -31,7 +31,10 @@ import com.google.android.material.chip.Chip;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final int FIRST_ORDER_ID = 1;
+    private Order currentOrder;
+    private ArrayList<Order> orderList;
+    private int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,4 +64,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OrderActivity.class);
         startActivity(intent);
     }
+    public void onBillClicked(View view) {
+        Intent intent = new Intent(this, BillActivity.class);
+        startActivity(intent);
+    }
+
 }
