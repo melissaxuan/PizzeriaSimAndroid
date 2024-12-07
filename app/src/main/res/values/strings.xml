@@ -20,4 +20,6 @@
     <string name="small_price">Small: $</string>
     <string name="medium_price">Medium: $</string>
     <string name="large_price">Large: $</string>
+
+    <string name="max_toppings">Max 7 toppings allowed.</string>
 </resources>

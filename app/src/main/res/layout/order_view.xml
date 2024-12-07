@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/ch_topping"
-        android:layout_width="433dp"
-        android:layout_height="74dp"
-        android:checkable="true"
-        app:checkedIconVisible="true"
-        app:closeIconVisible="true"
-        tools:text="Topping" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/ch_topping"
+            android:layout_width="435dp"
+            android:layout_height="150dp"
+            android:checkable="true"
+            android:onClick="onAddTopping"
+            app:checkedIconVisible="true"
+            app:closeIconVisible="true"
+            tools:text="Topping" />
+
+        <ImageView
+            android:id="@+id/iv_toppingimage"
+            android:layout_width="138dp"
+            android:layout_height="129dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            tools:srcCompat="@tools:sample/avatars" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

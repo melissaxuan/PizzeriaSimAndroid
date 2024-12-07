@@ -15,6 +15,8 @@ import java.util.ArrayList;
  * @author Melissa Xuan
  */
 public class BuildYourOwn extends Pizza {
+    public static final Crust CHICAGO = Crust.PAN;
+    public static final Crust NEW_YORK = Crust.HANDTOSSED;
     public static final double SMALL_PRICE = 8.99;
     public static final double MED_PRICE = 10.99;
     public static final double LARGE_PRICE = 12.99;
