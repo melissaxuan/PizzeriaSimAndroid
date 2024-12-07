@@ -64,6 +64,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Removes a pizza from the current order
+     * @param view current view
+     */
     public void onRemovePizza(View view) {
         final Pizza[] selectedItem = new Pizza[1];
         final int[] p = new int[1];
@@ -85,6 +89,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Places the current order and clear the view
+     * @param view the current view
+     */
     public void onPlaceOrder(View view) {
         if (!SingletonData.getInstance().getCurrentOrder().getPizzas().isEmpty()) {
             Order o = new Order(SingletonData.getInstance().getCurrentOrder());
@@ -99,6 +107,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Clears the current order
+     * @param view the current view
+     */
     public void onClearOrder(View view) {
 
         SingletonData.getInstance().getOrderList().remove(SingletonData.getInstance().getCurrentOrder());
@@ -110,6 +122,9 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * refreshes the current order page
+     */
     private void refreshPage() {
         pizzas = findViewById(R.id.lv_orderList);
 

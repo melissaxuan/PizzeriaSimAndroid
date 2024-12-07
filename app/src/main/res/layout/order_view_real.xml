@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
+                android:text="@string/order_a_pizza" />
                 android:text="@string/pizzaheader" />
 
             <EditText
@@ -29,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Type of Pizza:" />
+                android:text="@string/type_of_pizza"
+                tools:ignore="DuplicateIds" />
 
             <Spinner
                 android:id="@+id/sp_pizzatype"
@@ -48,20 +50,20 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="Type of Crust:" />
+                    android:text="@string/type_of_crust" />
 
                 <RadioButton
                     android:id="@+id/rb_chicago"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="Chicago Style" />
+                    android:text="@string/chicago_style" />
 
                 <RadioButton
                     android:id="@+id/rb_ny"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="New York Style" />
+                    android:text="@string/new_york_style" />
 
             </RadioGroup>
 
@@ -77,26 +79,26 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="Size of Pizza:" />
+                    android:text="@string/size_of_pizza" />
 
                 <RadioButton
                     android:id="@+id/rb_small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="Small" />
+                    android:text="@string/small" />
 
                 <RadioButton
                     android:id="@+id/rb_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Medium" />
+                    android:text="@string/medium" />
 
                 <RadioButton
                     android:id="@+id/rb_large"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Large" />
+                    android:text="@string/large" />
 
             </RadioGroup>
 
@@ -106,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Pizza Toppings:" />
+                android:text="@string/pizza_toppings" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_orderRecyclerView"
@@ -118,13 +120,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onAddPizza"
-                android:text="Add Pizza to Current Order" />
+                android:text="@string/add_pizza_to_current_order" />
 
             <Button
                 android:id="@+id/ExportButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back3"
                 android:onClick="onBackClick"/>
 
         </LinearLayout>
