@@ -172,6 +172,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         pizza.setToppings(selectedToppings);
         SingletonData.getInstance().getCurrentOrder().addPizza(pizza);
 
+        orderRecyclerAdapter.resetSelectedToppingList();
+        selectedToppings = new ArrayList<>();
         Toast.makeText(this, pizza.toString(), Toast.LENGTH_SHORT).show();
 
     }

@@ -98,6 +98,10 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
         return selectedToppingList;
     }
 
+    public void resetSelectedToppingList() {
+        selectedToppingList = new HashSet<>();
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private Chip ch_topping; // replace
         private ImageView iv_toppingImage;
