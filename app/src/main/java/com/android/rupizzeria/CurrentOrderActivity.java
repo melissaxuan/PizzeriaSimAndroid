@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Class to display the current order screen activity
+ * Class to display the current order screen activity.
  * @author Melissa Xuan
  */
 public class CurrentOrderActivity extends AppCompatActivity {
@@ -36,7 +36,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     private TextView orderno, subtotal, salesTax, orderTotal;
     @Override
     /**
-     * Overidden method to run the current activity
+     * Overidden method to run the current activity.
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +49,14 @@ public class CurrentOrderActivity extends AppCompatActivity {
     private Button backedButton;
 
     /**
-     * Helper method to find the ID's for all the variables
+     * Helper method to find the ID's for all the variables.
      */
     private void findID()
     {
         backedButton = findViewById(R.id.backButtonn);
     }
     /**
-     * Method to load the main activity after the back button was pressed
+     * Method to load the main activity after the back button was pressed.
      * @param view current view
      */
     public void onBackCurrent(View view) {
@@ -65,7 +65,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * Removes a pizza from the current order
+     * Removes a pizza from the current order.
      * @param view current view
      */
     public void onRemovePizza(View view) {
@@ -90,7 +90,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * Places the current order and clear the view
+     * Places the current order and clear the view.
      * @param view the current view
      */
     public void onPlaceOrder(View view) {
@@ -108,7 +108,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * Clears the current order
+     * Clears the current order.
      * @param view the current view
      */
     public void onClearOrder(View view) {
@@ -123,7 +123,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * refreshes the current order page
+     * refreshes the current order page.
      */
     private void refreshPage() {
         pizzas = findViewById(R.id.lv_orderList);

@@ -17,13 +17,13 @@ public final class SingletonData {
     private int counter = FIRST_ORDER_ID;
 
     /**
-     * Default constructor that is set to private so new SingletonData object can't be called
+     * Default constructor that is set to private so new SingletonData object can't be called.
      */
     private SingletonData() {
     }
 
     /**
-     * Returns this instance of SingletonData
+     * Returns this instance of SingletonData.
      * @return this instance of SingletonData
      */
     public static synchronized SingletonData getInstance() {
@@ -34,7 +34,7 @@ public final class SingletonData {
     }
 
     /**
-     * Getter method for list of Orders
+     * Getter method for list of Orders.
      * @return orderList
      */
     public ArrayList<Order> getOrderList() {
@@ -42,7 +42,7 @@ public final class SingletonData {
     }
 
     /**
-     * Setter method for list of Orders
+     * Setter method for list of Orders.
      * @param orderList ArrayList of Orders to be set for orderList
      */
     public void setOrderList(ArrayList<Order> orderList) {
@@ -50,7 +50,7 @@ public final class SingletonData {
     }
 
     /**
-     * Getter method for current Order
+     * Getter method for current Order.
      * @return current Order object
      */
     public Order getCurrentOrder() {
@@ -58,7 +58,7 @@ public final class SingletonData {
     }
 
     /**
-     * Setter method for current Order
+     * Setter method for current Order.
      * @param currentOrder Order object to be set for current Order
      */
     public void setCurrentOrder(Order currentOrder) {
@@ -66,7 +66,7 @@ public final class SingletonData {
     }
 
     /**
-     * Getter method for Order counter
+     * Getter method for Order counter.
      * @return counter that keeps track of Order IDs
      */
     public int getCounter() {
@@ -74,7 +74,7 @@ public final class SingletonData {
     }
 
     /**
-     * Setter method for Order counter
+     * Setter method for Order counter.
      * @param counter counter to be set in place of current counter
      */
     public void setCounter(int counter) {
