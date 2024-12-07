@@ -6,23 +6,16 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ListView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,55 +25,64 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import androidx.activity.EdgeToEdge;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.android.rupizzeria.OrderActivity;
-import com.android.rupizzeria.R;
 import com.android.rupizzeria.util.Order;
 import com.android.rupizzeria.util.SingletonData;
-import com.google.android.material.chip.Chip;
+
 /**
- * Class to display the Bill screen activity
+ * Class to display the Bill screen activity.
  * @author Michael Ehresman
  */
 public class BillActivity extends AppCompatActivity {
 
     private ListView lv_bill;
     private TextView tf_orderTotal;
-    private Button B_cancelOrder, B_exportStore,backButton;
+    private Button B_cancelOrder, B_exportStore, backButton;
     private Spinner sp_orderNumbers;
 
     @Override
-    /**
-     * Overidden method to run the current activity
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.bill_view);
 
-        setContentView(R.layout.bill_view);
         findID();
+        setupSpinnerListener(); // Attach the listener to the Spinner
+        printView();
     }
+
     /**
-     * Helper method to find the ID's for all the variables
+     * Helper method to find the ID's for all the variables.
      */
-    private void findID()
-    {
+    private void findID() {
         B_cancelOrder = findViewById(R.id.cancelOrder);
         B_exportStore = findViewById(R.id.exportOrders);
         backButton = findViewById(R.id.backsButton);
-        lv_bill=findViewById(R.id.ordersList);
-        tf_orderTotal=findViewById(R.id.priceView);
-        sp_orderNumbers=findViewById(R.id.orderNumbers);
-
+        lv_bill = findViewById(R.id.ordersList);
+        tf_orderTotal = findViewById(R.id.priceView);
+        sp_orderNumbers = findViewById(R.id.orderNumbers);
     }
+
     /**
-     * Helper method to calculate the total price of all the orders.
-     * @return total price
+     * Attaches an OnItemSelectedListener to the Spinner.
+     */
+    private void setupSpinnerListener() {
+        sp_orderNumbers.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                onSpinSelect(parent, view, position, id); // Call the onSpinSelect method
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Optional: Handle the case when nothing is selected
+            }
+        });
+    }
+
+    /**
+     * Calculates the total price of an order based on its index.
+     * @param index The order index.
+     * @return Total price of the selected order.
      */
     private double totalPrice(int index) {
         double price = 0;
@@ -92,41 +94,40 @@ public class BillActivity extends AppCompatActivity {
         }
         return price;
     }
-        /**
-     * FXML method that highlights the correct order in the list view that was selected in the combo box.
-     * @param actionEvent order to be highlighted
-     */
+
     /**
-     * Highlights the correct order in the ListView based on the selected item in the Spinner.
+     * Handles spinner item selection to display order details and total price.
      */
-    public void highLightOrder(View view) {
+    public void onSpinSelect(AdapterView<?> parent, View view, int position, long id) {
         String selectedOrderNumber = sp_orderNumbers.getSelectedItem().toString();
-        if (selectedOrderNumber == null) {
+        if (selectedOrderNumber == null || selectedOrderNumber.isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("No Selection")
+                    .setMessage("Please select an order to display.")
+                    .setPositiveButton("OK", null)
+                    .show();
             return;
         }
+
         int orderNum = Integer.parseInt(selectedOrderNumber);
         ArrayList<Order> orders = SingletonData.getInstance().getOrderList();
 
-        Order pickOrder = null;
+        Order selectedOrder = null;
         for (Order order : orders) {
             if (order.getNumber() == orderNum) {
-                pickOrder = order;
+                selectedOrder = order;
                 break;
             }
         }
 
-        if (pickOrder != null) {
-            // Wrap pickOrder.toString() into a List
-            List<String> orderDetails = Collections.singletonList(pickOrder.toString());
-
-            // Use ArrayAdapter with the List
+        // Update the ListView and total price if the order exists
+        if (selectedOrder != null) {
+            List<String> orderDetails = Collections.singletonList(selectedOrder.toString());
             lv_bill.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, orderDetails));
 
-            // Format and display the total price
             DecimalFormat df = new DecimalFormat("0.00");
             tf_orderTotal.setText(df.format(totalPrice(orderNum)));
         }
-
     }
 
     /**
@@ -134,7 +135,7 @@ public class BillActivity extends AppCompatActivity {
      */
     public void cancelOrder(View view) {
         String selectedOrder = (String) sp_orderNumbers.getSelectedItem();
-        if (selectedOrder == null) {
+        if (selectedOrder == null || selectedOrder.isEmpty()) {
             Toast.makeText(this, "Please select an order to cancel", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -147,15 +148,15 @@ public class BillActivity extends AppCompatActivity {
             }
         }
 
-        printView();
+        printView(); // Refresh the view after canceling the order
     }
+
     /**
      * Populates the Spinner and ListView with the current orders.
      */
     public void printView() {
         ArrayList<Order> orders = SingletonData.getInstance().getOrderList();
 
-        // Populate the Spinner
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         for (Order order : orders) {
             spinnerAdapter.add(String.valueOf(order.getNumber()));
@@ -163,13 +164,13 @@ public class BillActivity extends AppCompatActivity {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_orderNumbers.setAdapter(spinnerAdapter);
 
-        // Clear the ListView and EditText
         lv_bill.setAdapter(null);
         tf_orderTotal.setText("");
     }
+
     /**
      * Method to create a text file and export the orders into the text file.
-     * @param view button click
+     * @param view Button click
      */
     public void onExportStore(View view) {
         ArrayList<Order> orders = SingletonData.getInstance().getOrderList();
@@ -178,30 +179,26 @@ public class BillActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("No Orders")
                     .setMessage("Please add orders to export.")
-                    .setPositiveButton("OK", null) // Adds an OK button to dismiss the dialog
+                    .setPositiveButton("OK", null)
                     .show();
             return;
         }
 
-        // Launch a file picker to let the user choose where to save the file
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TITLE, "orders.txt"); // Default file name
-        startActivityForResult(intent, 1); // Request code 1 for this action
+        intent.putExtra(Intent.EXTRA_TITLE, "orders.txt");
+        startActivityForResult(intent, 1);
     }
 
     /**
      * Handles the result of the file picker Intent.
-     * @param requestCode the request code
-     * @param resultCode the result code
-     * @param data the intent data (contains the file URI)
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            Uri uri = data.getData(); // Get the URI of the selected file
+            Uri uri = data.getData();
             if (uri != null) {
                 try (FileOutputStream fos = (FileOutputStream) getContentResolver().openOutputStream(uri);
                      OutputStreamWriter writer = new OutputStreamWriter(fos)) {
@@ -211,20 +208,19 @@ public class BillActivity extends AppCompatActivity {
                         writer.write(order.toString() + System.lineSeparator());
                     }
 
-                    // Show success message to the user
                     Toast.makeText(this, "Orders exported successfully!", Toast.LENGTH_SHORT).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    // Show error message if export fails
                     Toast.makeText(this, "Export failed. Please try again.", Toast.LENGTH_SHORT).show();
                 }
             }
         }
     }
+
     /**
-     * Method to load the main activity after the back button was pressed
-     * @param view current view
+     * Method to load the main activity after the back button is pressed.
+     * @param view Current view
      */
     public void onBackButtonBill(View view) {
         Intent intent = new Intent(this, MainActivity.class);
