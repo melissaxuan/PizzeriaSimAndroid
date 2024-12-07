@@ -1,4 +1,4 @@
-package projects.rupizzeria.rupizzeria.util;
+package com.android.rupizzeria.util;
 
 /**
  * Enum class for the pizza toppings.

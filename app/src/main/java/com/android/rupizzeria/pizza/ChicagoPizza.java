@@ -1,9 +1,10 @@
-package projects.rupizzeria.rupizzeria.pizza;
+package com.android.rupizzeria.pizza;
 
-import projects.rupizzeria.rupizzeria.pizza.impl.BBQChicken;
-import projects.rupizzeria.rupizzeria.pizza.impl.BuildYourOwn;
-import projects.rupizzeria.rupizzeria.pizza.impl.Deluxe;
-import projects.rupizzeria.rupizzeria.pizza.impl.Meatzza;
+
+import com.android.rupizzeria.pizza.impl.BBQChicken;
+import com.android.rupizzeria.pizza.impl.BuildYourOwn;
+import com.android.rupizzeria.pizza.impl.Deluxe;
+import com.android.rupizzeria.pizza.impl.Meatzza;
 
 /**
  * Class for the chicago pizza choice.

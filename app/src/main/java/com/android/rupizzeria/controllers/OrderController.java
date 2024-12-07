@@ -34,7 +34,7 @@
 // *
 // * @author Melissa Xuan
 // */
-public class OrderController {
+//public class OrderController {
 //    private final double MIN_OPACITY = 0.0;
 //    private final double MAX_OPACITY = 1.0;
 //    private final int MAX_TOPPINGS = 7;
@@ -693,4 +693,4 @@ public class OrderController {
 //            case "BBQ_CHICKEN" -> {sp_pizza.getChildren().get(BBQ_CHICKEN).setOpacity(opacity);}
 //        }
 //    }
-}
+//}

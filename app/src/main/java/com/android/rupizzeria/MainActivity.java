@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import com.android.rupizzeria.util.Order;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import projects.rupizzeria.rupizzeria.util.Order;
 import java.util.ArrayList;
 
 import androidx.activity.EdgeToEdge;
@@ -31,10 +30,7 @@ import com.google.android.material.chip.Chip;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final int FIRST_ORDER_ID = 1;
-    private Order currentOrder;
-    private ArrayList<Order> orderList;
-    private int counter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
