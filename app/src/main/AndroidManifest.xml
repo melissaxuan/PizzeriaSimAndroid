@@ -32,6 +32,10 @@
         android:name=".BillActivity"
         android:exported="true" />
 
+        <activity
+            android:name=".CurrentOrderActivity"
+            android:exported="true" />
+
     </application>
 
 
