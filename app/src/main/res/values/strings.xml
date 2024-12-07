@@ -21,5 +21,12 @@
     <string name="medium_price">Medium: $</string>
     <string name="large_price">Large: $</string>
 
+    <string name="order_no">Order Number: </string>
+    <string name="subtotal">Subtotal: $</string>
+    <string name="tax">Sales Tax: $</string>
+    <string name="order_total">Order Total: $</string>
+
+    <string name="order_placed">Order placed: </string>
+
     <string name="max_toppings">Max 7 toppings allowed.</string>
 </resources>
