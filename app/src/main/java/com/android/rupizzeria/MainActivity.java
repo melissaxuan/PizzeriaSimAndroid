@@ -29,7 +29,7 @@ import com.android.rupizzeria.R;
 import com.google.android.material.chip.Chip;
 
 /**
- * Class to display the main screen activity
+ * Class to display the main screen activity.
  * @author Michael Ehresman
  */
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton orderButton,currentOrderButton, billbutton;
     @Override
     /**
-     * Overidden method to run the current activity
+     * Overidden method to run the current activity.
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         findID();
     }
     /**
-     * Helper method to find the ID's for all the variables
+     * Helper method to find the ID's for all the variables.
      */
     private void findID()
     {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Method to launch the order activity on the order button press
+     * Method to launch the order activity on the order button press.
      * @param view current view
      */
     public void onOrderClicked(View view) {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     /**
-     * Method to launch the bill activity on the bill button press
+     * Method to launch the bill activity on the bill button press.
      * @param view current view
      */
     public void onBillClicked(View view) {
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     /**
-     * Method to launch the currentOrder activity on the currentOrder button press
+     * Method to launch the currentOrder activity on the currentOrder button press.
      * @param view current view
      */
     public void onCurrentClicked(View view) {
