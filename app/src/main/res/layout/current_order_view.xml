@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Current Order:" />
+                android:text="@string/current_order" />
 
             <EditText
                 android:id="@+id/txt_orderno"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text=" Order Number: 1" />
+                android:text="@string/order_number_1" />
 
             <ListView
                 android:id="@+id/lv_orderList"
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Subtotal: $0.00" />
+                android:text="@string/subtotal_0_00" />
 
             <EditText
                 android:id="@+id/txt_salesTax"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Sales Tax: $0.00" />
+                android:text="@string/sales_tax_0_00" />
 
             <EditText
                 android:id="@+id/txt_orderTotal"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Order Total: $0.00" />
+                android:text="@string/order_total_0_00" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRemovePizza"
-                    android:text="Remove Pizza" />
+                    android:text="@string/remove_pizza2" />
 
                 <Button
                     android:id="@+id/bt_placeOrder"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onPlaceOrder"
-                    android:text="Place Order" />
+                    android:text="@string/place_order" />
 
                 <Button
                     android:id="@+id/bt_clearOrder"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onClearOrder"
-                    android:text="Clear Order" />
+                    android:text="@string/clear_order" />
 
             </LinearLayout>
 
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onBackCurrent"
-                android:text="Back" />
+                android:text="@string/back2" />
 
         </LinearLayout>
     </ScrollView>
