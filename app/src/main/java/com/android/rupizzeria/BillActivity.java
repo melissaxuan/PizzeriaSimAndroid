@@ -18,8 +18,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
@@ -37,6 +37,10 @@ import com.android.rupizzeria.R;
 import com.android.rupizzeria.util.Order;
 import com.android.rupizzeria.util.SingletonData;
 import com.google.android.material.chip.Chip;
+/**
+ * Class to display the Bill screen activity
+ * @author Michael Ehresman
+ */
 public class BillActivity extends AppCompatActivity {
 
     private ListView lv_bill;
@@ -45,6 +49,9 @@ public class BillActivity extends AppCompatActivity {
     private Spinner sp_orderNumbers;
 
     @Override
+    /**
+     * Overidden method to run the current activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -53,6 +60,9 @@ public class BillActivity extends AppCompatActivity {
         setContentView(R.layout.bill_view);
         findID();
     }
+    /**
+     * Helper method to find the ID's for all the variables
+     */
     private void findID()
     {
         B_cancelOrder = findViewById(R.id.cancelOrder);
@@ -120,11 +130,7 @@ public class BillActivity extends AppCompatActivity {
     public void cancelOrder(View view) {
         String selectedOrder = (String) sp_orderNumbers.getSelectedItem();
         if (selectedOrder == null) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Alert")
-                    .setMessage("Please select an order to cancel")
-                    .setPositiveButton("OK", null)
-                    .show();
+            Toast.makeText(this, "Please select an order to cancel", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -136,7 +142,7 @@ public class BillActivity extends AppCompatActivity {
             }
         }
 
-        printView(); // Refresh the view
+        printView();
     }
     /**
      * Populates the Spinner and ListView with the current orders.
@@ -157,6 +163,10 @@ public class BillActivity extends AppCompatActivity {
         tf_orderTotal.setText("");
     }
 
+    /**
+     * Method to load the main activity after the back button was pressed
+     * @param view current view
+     */
     public void onBackButtonBill(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
