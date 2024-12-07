@@ -1,8 +1,10 @@
 package com.android.rupizzeria;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +24,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -162,7 +167,61 @@ public class BillActivity extends AppCompatActivity {
         lv_bill.setAdapter(null);
         tf_orderTotal.setText("");
     }
+    /**
+     * Method to create a text file and export the orders into the text file.
+     * @param view button click
+     */
+    public void onExportStore(View view) {
+        ArrayList<Order> orders = SingletonData.getInstance().getOrderList();
 
+        if (orders.isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("No Orders")
+                    .setMessage("Please add orders to export.")
+                    .setPositiveButton("OK", null) // Adds an OK button to dismiss the dialog
+                    .show();
+            return;
+        }
+
+        // Launch a file picker to let the user choose where to save the file
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TITLE, "orders.txt"); // Default file name
+        startActivityForResult(intent, 1); // Request code 1 for this action
+    }
+
+    /**
+     * Handles the result of the file picker Intent.
+     * @param requestCode the request code
+     * @param resultCode the result code
+     * @param data the intent data (contains the file URI)
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            Uri uri = data.getData(); // Get the URI of the selected file
+            if (uri != null) {
+                try (FileOutputStream fos = (FileOutputStream) getContentResolver().openOutputStream(uri);
+                     OutputStreamWriter writer = new OutputStreamWriter(fos)) {
+
+                    ArrayList<Order> orders = SingletonData.getInstance().getOrderList();
+                    for (Order order : orders) {
+                        writer.write(order.toString() + System.lineSeparator());
+                    }
+
+                    // Show success message to the user
+                    Toast.makeText(this, "Orders exported successfully!", Toast.LENGTH_SHORT).show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    // Show error message if export fails
+                    Toast.makeText(this, "Export failed. Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
     /**
      * Method to load the main activity after the back button was pressed
      * @param view current view
