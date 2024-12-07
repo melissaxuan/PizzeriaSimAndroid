@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import projects.rupizzeria.rupizzeria.util.Order;
 import java.util.ArrayList;
 
 import androidx.activity.EdgeToEdge;

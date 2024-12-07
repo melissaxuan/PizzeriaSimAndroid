@@ -37,13 +37,13 @@
                 android:layout_height="58dp" />
 
             <RadioGroup
-                android:id="@+id/rg_pizzaSelect"
+                android:id="@+id/rg_pizzaCrust"
                 android:layout_width="435dp"
                 android:layout_height="wrap_content"
-                android:checkedButton="@id/bt_small">
+                android:checkedButton="@id/rb_chicago">
 
                 <EditText
-                    android:id="@+id/txt_pizzaSize"
+                    android:id="@+id/txt_pizzaCrust"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -51,14 +51,14 @@
                     android:text="Type of Crust:" />
 
                 <RadioButton
-                    android:id="@+id/bt_small"
+                    android:id="@+id/rb_chicago"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:text="Chicago Style" />
 
                 <RadioButton
-                    android:id="@+id/bt_medium"
+                    android:id="@+id/rb_ny"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="New York Style" />
@@ -66,10 +66,10 @@
             </RadioGroup>
 
             <RadioGroup
-                android:id="@+id/rg_pizzaSelect"
+                android:id="@+id/rg_pizzaSize"
                 android:layout_width="432dp"
                 android:layout_height="wrap_content"
-                android:checkedButton="@id/bt_small">
+                android:checkedButton="@id/rb_small">
 
                 <EditText
                     android:id="@+id/txt_pizzaSize"
@@ -80,20 +80,20 @@
                     android:text="Size of Pizza:" />
 
                 <RadioButton
-                    android:id="@+id/bt_small"
+                    android:id="@+id/rb_small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:text="Small" />
 
                 <RadioButton
-                    android:id="@+id/bt_medium"
+                    android:id="@+id/rb_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Medium" />
 
                 <RadioButton
-                    android:id="@+id/bt_large"
+                    android:id="@+id/rb_large"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Large" />

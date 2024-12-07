@@ -1,6 +1,8 @@
-package projects.rupizzeria.rupizzeria.util;
+package com.android.rupizzeria.util;
 
-import projects.rupizzeria.rupizzeria.pizza.Pizza;
+
+
+import com.android.rupizzeria.pizza.Pizza;
 
 import java.util.ArrayList;
 

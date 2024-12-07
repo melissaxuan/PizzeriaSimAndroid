@@ -1,8 +1,10 @@
-package projects.rupizzeria.rupizzeria.pizza;
+package com.android.rupizzeria.pizza;
 
-import projects.rupizzeria.rupizzeria.util.Crust;
-import projects.rupizzeria.rupizzeria.util.Size;
-import projects.rupizzeria.rupizzeria.util.Topping;
+
+
+import com.android.rupizzeria.util.Crust;
+import com.android.rupizzeria.util.Size;
+import com.android.rupizzeria.util.Topping;
 
 import java.util.ArrayList;
 
