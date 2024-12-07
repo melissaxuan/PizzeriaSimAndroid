@@ -3,6 +3,7 @@ package com.android.rupizzeria;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -87,7 +88,17 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     public void onRemovePizza(View view) {
+        // Set an item click listener to handle item selection
+        pizzas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item
+                String selectedItem = (String) parent.getItemAtPosition(position);
 
+                // Show a Toast with the selected item
+                Toast.makeText(pizzas.getContext(), "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //        SingletonData.getInstance().getCurrentOrder().removePizza();
     }
@@ -97,7 +108,8 @@ public class CurrentOrderActivity extends AppCompatActivity {
             Order o = new Order(SingletonData.getInstance().getCurrentOrder());
             SingletonData.getInstance().getOrderList().add(o);
 
-            Toast.makeText(this, R.string.order_placed + o.getNumber(), Toast.LENGTH_SHORT).show();
+            String toast = getString(R.string.order_placed) + o.getNumber();
+            Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
 
             SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
             SingletonData.getInstance().setCurrentOrder(new Order(SingletonData.getInstance().getCounter()));
