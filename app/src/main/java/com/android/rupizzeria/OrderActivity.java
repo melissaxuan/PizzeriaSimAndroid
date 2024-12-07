@@ -35,7 +35,8 @@ import java.util.Arrays;
 import java.util.Set;
 
 /**
- * Class to display the order activity
+ * Class to display the order activity.
+ *
  * @author Melissa Xuan
  */
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -58,7 +59,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     /**
-     * Overidden method to run the current activity
+     * Overidden method to run the current activity.
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +86,13 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * Handles on selected items.
+     * @param parent The AdapterView where the selection happened
+     * @param view The view within the AdapterView that was clicked
+     * @param position The position of the view in the adapter
+     * @param id The row id of the item that is selected
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String p = spinner.getSelectedItem().toString();
@@ -119,13 +127,27 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         Toast.makeText(this, p, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Handles on nothing selected.
+     *
+     * @param parent The AdapterView that now contains no selected item.
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
+    /**
+     * Handles add topping.
+     * @param view current view
+     */
     public void onAddTopping(View view) {
 //        selectedToppings.add()
     }
+
+    /**
+     * Handles add pizza.
+     * @param view current view
+     */
     public void onAddPizza(View view) {
         String p = spinner.getSelectedItem().toString();
 
@@ -135,15 +157,13 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         int selectedCrust = crust.getCheckedRadioButtonId();
         int selectedSize = crust.getCheckedRadioButtonId();
 
-//        RadioButton rbCrust = findViewById(selectedCrust);
-//        RadioButton rbSize = findViewById(selectedSize);
-
         PizzaFactory pizzaFactory = new ChicagoPizza();
         Pizza pizza = pizzaFactory.createDeluxe();
         String[] s = getResources().getStringArray(R.array.pizzatype);
         if (p.equals(s[IDX_ZERO])) {
             pizza = pizzaFactory.createDeluxe();
             placeDeluxe(pizza, selectedCrust, selectedSize);
+            selectedToppings.addAll(Arrays.asList(Topping.SAUSAGE, Topping.PEPPERONI, Topping.GREEN_PEPPER, Topping.ONION, Topping.MUSHROOM));
         }
         else if (p.equals(s[IDX_ONE])) {
             pizza = pizzaFactory.createBBQChicken();
@@ -151,6 +171,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                 pizza.setCrust(BBQChicken.CHICAGO);
             else
                 pizza.setCrust(BBQChicken.NEW_YORK);
+            selectedToppings.addAll(Arrays.asList(Topping.BBQ_CHICKEN, Topping.GREEN_PEPPER, Topping.PROVOLONE, Topping.CHEDDAR));
+
         }
         else if (p.equals(s[IDX_TWO])) {
             pizza = pizzaFactory.createMeatzza();
@@ -158,6 +180,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                 pizza.setCrust(Meatzza.CHICAGO);
             else
                 pizza.setCrust(Meatzza.NEW_YORK);
+            selectedToppings.addAll(Arrays.asList(Topping.SAUSAGE, Topping.PEPPERONI, Topping.BEEF, Topping.HAM));
+
         }
         else if (p.equals(s[IDX_THREE])) {
             pizza = pizzaFactory.createBuildYourOwn();
@@ -177,6 +201,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         Toast.makeText(this, pizza.toString(), Toast.LENGTH_SHORT).show();
 
     }
+
     /**
      * Method to load the main activity after the back button was pressed
      * @param view current view
@@ -186,6 +211,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         startActivity(intent);
     }
 
+    /**
+     * Helper method to set up deluxe.
+     */
     private void setupDeluxe() {
         chicagoCrust.setText(R.string.deluxe_chicago);
         nyCrust.setText(R.string.deluxe_ny);
@@ -198,6 +226,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
+    /**
+     * Helper method to set up BBQ Chicken.
+     */
     private void setupBBQChicken() {
         chicagoCrust.setText(R.string.bbq_chicago);
         nyCrust.setText(R.string.bbq_ny);
@@ -209,6 +240,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         largeSize.setText(l);
     }
 
+    /**
+     * Helper method to set up Meatzza.
+     */
     private void setupMeatzza() {
         chicagoCrust.setText(R.string.meatzza_chicago);
         nyCrust.setText(R.string.meatzza_ny);
@@ -220,6 +254,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         largeSize.setText(l);
     }
 
+    /**
+     * Helper method to set up BYO.
+     */
     private void setupBYO() {
         chicagoCrust.setText(R.string.byo_chicago);
         nyCrust.setText(R.string.byo_ny);
@@ -231,6 +268,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         largeSize.setText(l);
     }
 
+    /**
+     * Helper method to place Deluxe order.
+     * @param pizza pizza to place
+     * @param selectedCrust selected Crust
+     * @param selectedSize selected Size
+     */
     private void placeDeluxe(Pizza pizza, int selectedCrust, int selectedSize) {
         if (selectedCrust == IDX_ZERO)
             pizza.setCrust(Deluxe.CHICAGO);
@@ -239,7 +282,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
         setPizzaSize(pizza, selectedSize);
     }
-
+    /**
+     * Helper method to place BBQ order.
+     * @param pizza pizza to place
+     * @param selectedCrust selected Crust
+     * @param selectedSize selected Size
+     */
     private void placeBBQ(Pizza pizza, int selectedCrust, int selectedSize) {
         if (selectedCrust == IDX_ZERO)
             pizza.setCrust(BBQChicken.CHICAGO);
@@ -249,6 +297,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         setPizzaSize(pizza, selectedSize);
     }
 
+    /**
+     * Helper method to place Meatzza order.
+     * @param pizza pizza to place
+     * @param selectedCrust selected Crust
+     * @param selectedSize selected Size
+     */
     private void placeMeatzza(Pizza pizza, int selectedCrust, int selectedSize) {
         if (selectedCrust == IDX_ZERO)
             pizza.setCrust(Meatzza.CHICAGO);
@@ -258,6 +312,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         setPizzaSize(pizza, selectedSize);
     }
 
+    /**
+     * Helper method to place BYO order.
+     * @param pizza pizza to place
+     * @param selectedCrust selected Crust
+     * @param selectedSize selected Size
+     */
     private void placeBYO(Pizza pizza, int selectedCrust, int selectedSize) {
         if (selectedCrust == IDX_ZERO)
             pizza.setCrust(BuildYourOwn.CHICAGO);
@@ -267,6 +327,11 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         setPizzaSize(pizza, selectedSize);
     }
 
+    /**
+     * Helper method to set pizza size.
+     * @param pizza pizza to set
+     * @param selectedSize selected size
+     */
     private void setPizzaSize(Pizza pizza, int selectedSize) {
         if (selectedSize == IDX_ZERO) {
             pizza.setSize(Size.SMALL);
@@ -279,6 +344,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
+    /**
+     * Helper method to convert toppings from recycler adapter.
+     */
     private void convertToppings() {
         Set<Integer> selToppings = orderRecyclerAdapter.getSelectedToppingList();
 

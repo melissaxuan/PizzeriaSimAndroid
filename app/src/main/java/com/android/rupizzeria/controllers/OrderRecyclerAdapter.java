@@ -24,7 +24,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Handles adapter for order recycler.
+ *
+ * @author Melissa Xuan
+ */
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.MyViewHolder> {
     private final int MAX_TOPPINGS = 7;
     private Context context;
@@ -33,6 +37,12 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     private Set<Integer> selectedToppingList;
 
+    /**
+     * Constructor.
+     * @param context context for adapter
+     * @param toppingList list of toppings
+     * @param toppingImageList list of topping images
+     */
     public OrderRecyclerAdapter(Context context, ArrayList<Topping> toppingList, ArrayList<Integer> toppingImageList) {
         this.context = context;
         this.toppingList = toppingList;
@@ -41,7 +51,14 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
     }
 
 
-
+    /**
+     * Handles creating view holder.
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return view holder
+     */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,6 +66,12 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
         return new MyViewHolder(view);
     }
 
+    /**
+     * Handles when binding view holder.
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String topping = toppingList.get(position).name();
@@ -81,11 +104,12 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
             }
         });
-
-        Log.i("TOPPINGS", selectedToppingList.toString() + " ");
-
     }
 
+    /**
+     * Returns item counts.
+     * @return item count
+     */
     @Override
     public int getItemCount() {
         Log.i("SIZE", toppingList.size() + " ");
@@ -94,14 +118,24 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     }
 
+    /**
+     * Returns topping list.
+     * @return set of topping list.
+     */
     public Set<Integer> getSelectedToppingList() {
         return selectedToppingList;
     }
 
+    /**
+     * Resets selected topping list.
+     */
     public void resetSelectedToppingList() {
         selectedToppingList = new HashSet<>();
     }
 
+    /**
+     * Helper class for recycler view.
+     */
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private Chip ch_topping; // replace
         private ImageView iv_toppingImage;
