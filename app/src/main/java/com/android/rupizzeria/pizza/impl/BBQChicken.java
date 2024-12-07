@@ -14,6 +14,8 @@ import java.util.Arrays;
  * Handles orders for BBQ Chicken Pizza.
  */
 public class BBQChicken extends Pizza {
+    public static final Crust CHICAGO = Crust.PAN;
+    public static final Crust NEW_YORK = Crust.THIN;
     public static final double SMALL_PRICE = 14.99;
     public static final double MED_PRICE = 16.99;
     public static final double LARGE_PRICE = 19.99;

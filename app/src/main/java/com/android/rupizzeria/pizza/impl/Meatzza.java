@@ -16,6 +16,8 @@ import java.util.Arrays;
  * @author Melissa Xuan
  */
 public class Meatzza extends Pizza {
+    public static final Crust CHICAGO = Crust.STUFFED;
+    public static final Crust NEW_YORK = Crust.HANDTOSSED;
     public static final double SMALL_PRICE = 17.99;
     public static final double MED_PRICE = 19.99;
     public static final double LARGE_PRICE = 21.99;

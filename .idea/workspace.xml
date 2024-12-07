@@ -12,11 +12,6 @@
           <theme>@style/Theme.Rupizzeria</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/bill_view.xml">
-        <config>
-          <theme>@style/Theme.Rupizzeria</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/current_order_view.xml">
         <config>
           <theme>@style/Theme.Rupizzeria</theme>
@@ -45,14 +40,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08d43213-cc79-4a42-900a-2fb436b24598" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/BillActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/BillActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/CurrentOrderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/CurrentOrderActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/OrderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/OrderActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bill_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bill_view.xml" afterDir="false" />
-    </list>
+    <list default="true" id="08d43213-cc79-4a42-900a-2fb436b24598" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,49 +49,11 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\starw\.android\avd\Pixel_3a_XL_API_34.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\melis\.android\avd\Pixel_3a_XL_API_34.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$/app">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="rupizzeria" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="rupizzeria" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="rupizzeria" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="rupizzeria" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -158,9 +108,9 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "billview",
+    "git-widget-placeholder": "order-gui-branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/melis/AndroidStudioProjects/RecyclerViewExample/main"
+    "last_opened_file_path": "C:/Users/melis/Projects/RUPizzeria2/RUPizzeria2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -402,18 +352,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java</url>
-          <line>42</line>
+          <line>44</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java</url>
-          <line>50</line>
+          <line>53</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/rupizzeria/controllers/OrderRecyclerAdapter.java</url>
-          <line>39</line>
-          <properties class="com.android.rupizzeria.controllers.OrderRecyclerAdapter">
+          <line>41</line>
+          <properties class="com.android.rupizzeria.controllers.OrderRecyclerAdapter" method="onBindViewHolder">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="10" />
