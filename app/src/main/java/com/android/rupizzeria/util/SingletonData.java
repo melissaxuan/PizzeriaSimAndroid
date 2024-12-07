@@ -1,6 +1,5 @@
 package com.android.rupizzeria.util;
 
-import projects.rupizzeria.rupizzeria.util.Order;
 import java.util.ArrayList;
 
 /**

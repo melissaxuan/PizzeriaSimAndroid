@@ -1,6 +1,7 @@
 package com.android.rupizzeria.controllers;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<Topping> toppingList;
+    private ArrayList<Drawable> toppingImageList;
 
     public OrderRecyclerAdapter(Context context, ArrayList<Topping> toppingList) {
         this.context = context;
@@ -39,8 +41,9 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String topping = toppingList.get(position).name();
-
+        Drawable toppingImage = toppingImageList.get(position);
         holder.ch_topping.setText(topping);
+        holder.ch_topping.setChipIcon(toppingImage);
         Log.i("TOPPING", topping + " added at position " + position);
     }
 
