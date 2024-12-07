@@ -94,17 +94,20 @@ public class CurrentOrderActivity extends AppCompatActivity {
             Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
 
             SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
-            SingletonData.getInstance().setCurrentOrder(new Order(SingletonData.getInstance().getCounter()));
 
             refreshPage();
         }
     }
 
     public void onClearOrder(View view) {
+
         SingletonData.getInstance().getOrderList().remove(SingletonData.getInstance().getCurrentOrder());
         SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
+        SingletonData.getInstance().setCurrentOrder(new Order(SingletonData.getInstance().getCounter()));
 
         refreshPage();
+
+
     }
 
     private void refreshPage() {

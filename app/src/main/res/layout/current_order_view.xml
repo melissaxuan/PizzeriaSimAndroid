@@ -19,9 +19,11 @@
                 android:id="@+id/txt_currentOrderHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="false"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Current Order:" />
+                android:text="Current Order:"
+                android:textIsSelectable="false" />
 
             <EditText
                 android:id="@+id/txt_orderno"
@@ -34,7 +36,7 @@
             <ListView
                 android:id="@+id/lv_orderList"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="112dp" />
 
             <EditText
                 android:id="@+id/txt_subtotal"

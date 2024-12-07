@@ -30,4 +30,6 @@
     <string name="remove_pizza">Removed pizza: </string>
 
     <string name="max_toppings">Max 7 toppings allowed.</string>
+
+    <string name="pizzaheader">ORDER A PIZZA:</string>
 </resources>

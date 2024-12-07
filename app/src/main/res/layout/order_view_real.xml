@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="ORDER A PIZZA:" />
+                android:text="@string/pizzaheader" />
 
             <EditText
                 android:id="@+id/txt_pizzaSize"
