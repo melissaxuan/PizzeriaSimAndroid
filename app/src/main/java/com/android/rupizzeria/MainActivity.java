@@ -64,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BillActivity.class);
         startActivity(intent);
     }
+    public void onCurrentClicked(View view) {
+        Intent intent = new Intent(this, CurrentOrderActivity.class);
+        startActivity(intent);
+    }
 
 }
