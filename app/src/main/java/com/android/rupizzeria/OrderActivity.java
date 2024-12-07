@@ -30,6 +30,10 @@ import com.android.rupizzeria.util.Topping;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Class to display the order activity
+ * @author Melissa Xuan
+ */
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final int IDX_ZERO = 0;
     private final int IDX_ONE = 1;
@@ -45,6 +49,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private RadioButton chicagoCrust, nyCrust, smallSize, medSize, largeSize;
 
     @Override
+    /**
+     * Overidden method to run the current activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -110,6 +117,10 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    /**
+     * Method to load the main activity after the back button was pressed
+     * @param view current view
+     */
     public void onBackClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
