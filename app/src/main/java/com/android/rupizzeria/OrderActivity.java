@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,10 +26,13 @@ import com.android.rupizzeria.pizza.impl.BBQChicken;
 import com.android.rupizzeria.pizza.impl.BuildYourOwn;
 import com.android.rupizzeria.pizza.impl.Deluxe;
 import com.android.rupizzeria.pizza.impl.Meatzza;
+import com.android.rupizzeria.util.SingletonData;
+import com.android.rupizzeria.util.Size;
 import com.android.rupizzeria.util.Topping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final int IDX_ZERO = 0;
@@ -37,12 +41,16 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private final int IDX_THREE = 3;
 
     private ArrayList<Topping> toppingList = new ArrayList<>();
-    private ArrayList<Drawable> toppingImageList = new ArrayList<>();
+    private ArrayList<Integer> toppingImageList = new ArrayList<>();
     private RecyclerView recyclerView;
     private Spinner spinner;
     private Button back;
-
+    private RadioGroup crust, size;
     private RadioButton chicagoCrust, nyCrust, smallSize, medSize, largeSize;
+
+    private OrderRecyclerAdapter orderRecyclerAdapter;
+
+    private ArrayList<Topping> selectedToppings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +68,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
 
         recyclerView = findViewById(R.id.rv_orderRecyclerView);
         toppingList.addAll(Arrays.asList(Topping.values()));
-//        toppingImageList.add(R.drawable.)
-        OrderRecyclerAdapter orderRecyclerAdapter = new OrderRecyclerAdapter(this, toppingList);
+        toppingImageList.addAll(Arrays.asList(R.drawable.mushroom_12, R.drawable.pineapple_13, R.drawable.blackolive_11,
+                R.drawable.cheddar_1, R.drawable.provolone_5, R.drawable.spinach_10, R.drawable.ham_9,
+                R.drawable.beef_8, R.drawable.sausage_7, R.drawable.pepperoni_2, R.drawable.greenpepper_6,
+                R.drawable.onion_4, R.drawable.oxtail_3, R.drawable.bbqchicken_14));
+
+        orderRecyclerAdapter = new OrderRecyclerAdapter(this, toppingList, toppingImageList);
         recyclerView.setAdapter(orderRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -97,17 +109,63 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             setupBYO();
         }
 
-
-
-
-
-//        chicagoCrust.setText()
-
         Toast.makeText(this, p, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    public void onAddTopping(View view) {
+//        selectedToppings.add()
+    }
+    public void onAddPizza(View view) {
+        String p = spinner.getSelectedItem().toString();
+
+        crust = findViewById(R.id.rg_pizzaCrust);
+        size = findViewById(R.id.rg_pizzaSize);
+
+        int selectedCrust = crust.getCheckedRadioButtonId();
+        int selectedSize = crust.getCheckedRadioButtonId();
+
+//        RadioButton rbCrust = findViewById(selectedCrust);
+//        RadioButton rbSize = findViewById(selectedSize);
+
+        PizzaFactory pizzaFactory = new ChicagoPizza();
+        Pizza pizza = pizzaFactory.createDeluxe();
+        String[] s = getResources().getStringArray(R.array.pizzatype);
+        if (p.equals(s[IDX_ZERO])) {
+            pizza = pizzaFactory.createDeluxe();
+            placeDeluxe(pizza, selectedCrust, selectedSize);
+        }
+        else if (p.equals(s[IDX_ONE])) {
+            pizza = pizzaFactory.createBBQChicken();
+            if (selectedCrust == IDX_ZERO)
+                pizza.setCrust(BBQChicken.CHICAGO);
+            else
+                pizza.setCrust(BBQChicken.NEW_YORK);
+        }
+        else if (p.equals(s[IDX_TWO])) {
+            pizza = pizzaFactory.createMeatzza();
+            if (selectedCrust == IDX_ZERO)
+                pizza.setCrust(Meatzza.CHICAGO);
+            else
+                pizza.setCrust(Meatzza.NEW_YORK);
+        }
+        else if (p.equals(s[IDX_THREE])) {
+            pizza = pizzaFactory.createBuildYourOwn();
+            if (selectedCrust == IDX_ZERO)
+                pizza.setCrust(BuildYourOwn.CHICAGO);
+            else
+                pizza.setCrust(BuildYourOwn.NEW_YORK);
+
+            convertToppings();
+        }
+
+        pizza.setToppings(selectedToppings);
+        SingletonData.getInstance().getCurrentOrder().addPizza(pizza);
+
+        Toast.makeText(this, pizza.toString(), Toast.LENGTH_SHORT).show();
 
     }
     public void onBackClick(View view) {
@@ -124,6 +182,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         smallSize.setText(s);
         medSize.setText(m);
         largeSize.setText(l);
+
     }
 
     private void setupBBQChicken() {
@@ -157,5 +216,63 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         smallSize.setText(s);
         medSize.setText(m);
         largeSize.setText(l);
+    }
+
+    private void placeDeluxe(Pizza pizza, int selectedCrust, int selectedSize) {
+        if (selectedCrust == IDX_ZERO)
+            pizza.setCrust(Deluxe.CHICAGO);
+        else
+            pizza.setCrust(Deluxe.NEW_YORK);
+
+        setPizzaSize(pizza, selectedSize);
+    }
+
+    private void placeBBQ(Pizza pizza, int selectedCrust, int selectedSize) {
+        if (selectedCrust == IDX_ZERO)
+            pizza.setCrust(BBQChicken.CHICAGO);
+        else
+            pizza.setCrust(BBQChicken.NEW_YORK);
+
+        setPizzaSize(pizza, selectedSize);
+    }
+
+    private void placeMeatzza(Pizza pizza, int selectedCrust, int selectedSize) {
+        if (selectedCrust == IDX_ZERO)
+            pizza.setCrust(Meatzza.CHICAGO);
+        else
+            pizza.setCrust(Meatzza.NEW_YORK);
+
+        setPizzaSize(pizza, selectedSize);
+    }
+
+    private void placeBYO(Pizza pizza, int selectedCrust, int selectedSize) {
+        if (selectedCrust == IDX_ZERO)
+            pizza.setCrust(BuildYourOwn.CHICAGO);
+        else
+            pizza.setCrust(BuildYourOwn.NEW_YORK);
+
+        setPizzaSize(pizza, selectedSize);
+    }
+
+    private void setPizzaSize(Pizza pizza, int selectedSize) {
+        if (selectedSize == IDX_ZERO) {
+            pizza.setSize(Size.SMALL);
+        }
+        else if (selectedSize == IDX_ONE) {
+            pizza.setSize(Size.MEDIUM);
+        }
+        else if (selectedSize == IDX_TWO) {
+            pizza.setSize(Size.LARGE);
+        }
+    }
+
+    private void convertToppings() {
+        Set<Integer> selToppings = orderRecyclerAdapter.getSelectedToppingList();
+
+        for (int i = 0; i < Topping.values().length; i++) {
+            if (selToppings.contains(i)) {
+                selectedToppings.add(Topping.values()[i]);
+            }
+        }
     }
 }

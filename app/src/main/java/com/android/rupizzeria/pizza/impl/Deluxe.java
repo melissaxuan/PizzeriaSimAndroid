@@ -14,6 +14,8 @@ import java.util.Arrays;
  * Handles orders for Deluxe Pizza.
  */
 public class Deluxe extends Pizza {
+    public static final Crust CHICAGO = Crust.DEEPDISH;
+    public static final Crust NEW_YORK = Crust.BROOKLYN;
     public static final double SMALL_PRICE = 16.99;
     public static final double MED_PRICE = 18.99;
     public static final double LARGE_PRICE = 20.99;
