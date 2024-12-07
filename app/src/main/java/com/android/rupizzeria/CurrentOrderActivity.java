@@ -3,6 +3,7 @@ package com.android.rupizzeria;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.rupizzeria.pizza.Pizza;
 import com.android.rupizzeria.util.Order;
 import com.android.rupizzeria.util.SingletonData;
 
@@ -41,6 +43,71 @@ public class CurrentOrderActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.current_order_view);
 
+
+        refreshPage();
+    }
+    private Button backedButton;
+
+    /**
+     * Helper method to find the ID's for all the variables
+     */
+    private void findID()
+    {
+        backedButton = findViewById(R.id.backButtonn);
+    }
+    /**
+     * Method to load the main activity after the back button was pressed
+     * @param view current view
+     */
+    public void onBackCurrent(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onRemovePizza(View view) {
+        final Pizza[] selectedItem = new Pizza[1];
+        final int[] p = new int[1];
+        // Set an item click listener to handle item selection
+        pizzas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item
+                selectedItem[0] = (Pizza) parent.getItemAtPosition(position);
+                p[0] = position;
+                // Show a Toast with the selected item
+                SingletonData.getInstance().getCurrentOrder().removePizza(p[0]);
+
+                String toast = getString(R.string.remove_pizza) + selectedItem[0].toString();
+                Toast.makeText(pizzas.getContext(), toast, Toast.LENGTH_SHORT).show();
+
+                refreshPage();
+            }
+        });
+    }
+
+    public void onPlaceOrder(View view) {
+        if (!SingletonData.getInstance().getCurrentOrder().getPizzas().isEmpty()) {
+            Order o = new Order(SingletonData.getInstance().getCurrentOrder());
+            SingletonData.getInstance().getOrderList().add(o);
+
+            String toast = getString(R.string.order_placed) + o.getNumber();
+            Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
+
+            SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
+            SingletonData.getInstance().setCurrentOrder(new Order(SingletonData.getInstance().getCounter()));
+
+            refreshPage();
+        }
+    }
+
+    public void onClearOrder(View view) {
+        SingletonData.getInstance().getOrderList().remove(SingletonData.getInstance().getCurrentOrder());
+        SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
+
+        refreshPage();
+    }
+
+    private void refreshPage() {
         pizzas = findViewById(R.id.lv_orderList);
 
 
@@ -66,41 +133,6 @@ public class CurrentOrderActivity extends AppCompatActivity {
             subtotal.setText(subtotalAmount);
             salesTax.setText(salesTaxAmount);
             orderTotal.setText(orderTotalAmount);
-        }
-    }
-    private Button backedButton;
-
-    /**
-     * Helper method to find the ID's for all the variables
-     */
-    private void findID()
-    {
-        backedButton = findViewById(R.id.backButtonn);
-    }
-    /**
-     * Method to load the main activity after the back button was pressed
-     * @param view current view
-     */
-    public void onBackCurrent(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void onRemovePizza(View view) {
-
-
-//        SingletonData.getInstance().getCurrentOrder().removePizza();
-    }
-
-    public void onPlaceOrder(View view) {
-        if (!SingletonData.getInstance().getCurrentOrder().getPizzas().isEmpty()) {
-            Order o = new Order(SingletonData.getInstance().getCurrentOrder());
-            SingletonData.getInstance().getOrderList().add(o);
-
-            Toast.makeText(this, R.string.order_placed + o.getNumber(), Toast.LENGTH_SHORT).show();
-
-            SingletonData.getInstance().setCounter(SingletonData.getInstance().getCounter() + COUNT_INCR);
-            SingletonData.getInstance().setCurrentOrder(new Order(SingletonData.getInstance().getCounter()));
         }
     }
 }
